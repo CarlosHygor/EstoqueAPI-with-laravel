@@ -1,0 +1,34 @@
+{
+  "name": "Laravel & PostgreSQL Dev Container",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "overrideCommand": false,
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "php.suggest.basic": false,
+        "php.validate.enable": true
+      },
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "amiralizadeh9480.laravel-extra-intellisense",
+        "cweijan.vscode-database-client2",
+        "eamodio.gitlens"
+      ]
+    }
+  },
+  "remoteUser": "vscode",
+  "portsAttributes": {
+    "8000": {
+      "label": "Laravel App",
+      "onAutoForward": "silent"
+    },
+    "5432": {
+      "label": "PostgreSQL",
+      "onAutoForward": "silent"
+    }
+  },
+  "postCreateCommand": "git config --global --add safe.directory /workspace && echo 'Dev Container inicializado com sucesso!'"
+}
